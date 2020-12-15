@@ -15,7 +15,17 @@ $(document).ready(function(){
         url:ytUrl,
         method: "GET"
     }).then(function(data) {
+
+         // for each loop for the data recieved.
+         $.each(data.items, function(i,item) {
+            //created p tag for video title.
+            var p = $("<p>");
+            p.text(item.snippet.title)
+            //append p tag and iframe with video id to video section.
+            $("#videos").append(p, 
+            `<iframe width="420" height="315" src="https://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allow="accelerometer; encrypted-media" allowfullscreen></iframe>`);
+            });
     
-})
-})
+        })
+    })
 })
