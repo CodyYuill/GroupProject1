@@ -10,5 +10,12 @@ $(document).ready(function(){
     var maxResults= 6;
     var ytUrl = "https://www.googleapis.com/youtube/v3/search?key=" + key + "&videoEmbeddable=true&type=video&part=snippet&maxResults=" + maxResults + "&q=" + search;
 
+    //creating ajax call for when the submit button is clicked.
+    $.ajax({
+        url:ytUrl,
+        method: "GET"
+    }).then(function(data) {
+    
+})
 })
 })
