@@ -5,5 +5,10 @@ $(document).ready(function(){
     e.preventDefault();
     $("#videos").empty();  // clears videos when submit button clicked
 
+    var key = "AIzaSyAa1zc7O33vu-6VA17JJFLnWPC9ckiXcOw";
+    var search = $("#search").val();
+    var maxResults= 6;
+    var ytUrl = "https://www.googleapis.com/youtube/v3/search?key=" + key + "&videoEmbeddable=true&type=video&part=snippet&maxResults=" + maxResults + "&q=" + search;
+
 })
 })
