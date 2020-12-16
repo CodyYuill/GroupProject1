@@ -1,5 +1,7 @@
 $(document).ready(function(){
+    ytVids();
 
+    function ytVids () {
     //event listener for yt button
     $("#youtube").click(function(e){
     e.preventDefault();
@@ -27,5 +29,6 @@ $(document).ready(function(){
             });
     
         })
-    })
+    });
+    }   
 })
