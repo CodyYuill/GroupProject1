@@ -17,11 +17,9 @@
 * Project description:
 
 ## Contributors
-[Cody Yuill](https://github.com/CodyYuill)
-[Matthew Guillen](https://github.com/GuilleMGN)
-[Nashica Walters](https://github.com/nashwalters)
-
-
+* [Cody Yuill](https://github.com/CodyYuill)
+* [Matthew Guillen](https://github.com/GuilleMGN)
+* [Nashica Walters](https://github.com/nashwalters)
 
 ## Technology
 
