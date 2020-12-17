@@ -1,0 +1,36 @@
+#title {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 900;
+    color: black;
+    margin: 20px;
+}
+#cannon-img {
+    max-height: 25px;
+}
+#search-area {
+    border: 1px solid;
+    border-radius: 10px;
+    text-align: center;
+}
+#search {
+    width: 90%;
+    margin: 10px;
+}
+#results {
+    border: 1px solid;
+    border-radius: 10px;
+    text-align: center;
+}
+#lyrics {
+    border: 1px solid;
+    border-radius: 10px;
+    text-align: center;
+}
+body {
+    height: 100%;
+}
+.footer {
+    background-color: antiquewhite;
+    padding: 10px;
+}
