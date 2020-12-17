@@ -27,13 +27,14 @@ The APIs used are listed below:
 
 * [Bitly](https://dev.bitly.com/)
 * [Lyrics.ovh](https://lyricsovh.docs.apiary.io/#)
+* [Sound cloud ?](https://developers.soundcloud.com/)
 * [Spotify](https://developer.spotify.com/documentation/web-api/)
-* [Sound cloud](https://developers.soundcloud.com/)
 * [Vimeo](https://developer.vimeo.com/)
 * [YouTube](https://developers.google.com/youtube/)
 
 ## Deployment
 
+[Click here](https://codyyuill.github.io/Vibe-Cannon/)
 
 ## Screenshots
 
@@ -45,4 +46,5 @@ The APIs used are listed below:
 
 ## License 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Copyright © 2020
