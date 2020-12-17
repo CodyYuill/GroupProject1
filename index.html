@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bulma/css/bulma.css">
-    <title>Vid Search</title>
-</head>
-<body>
-    <h1>Test Video Search</h1>
-    <form>
-        <label for="search">Search:</label><br>
-        <input id="search" type="text" placeholder="search">
-        <button id="youtube" class="button is-danger">YouTube</button>
-        <button id="vimeo" class="button is-danger">Vimeo</button>
-    </form>
-
-    <section>
-        <div id="videos"></div>
-    </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bulma/css/bulma.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Vibe Cannon</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <h1 id="title">
+      Vibe Cannon <img src="./img/cannon.png" id="cannon-img" />
+    </h1>
+    <!-- Open the columns for responsiveness -->
+    <div class="columns">
+      <div class="column is-mobile is-one-third-desktop" id="search-area">
+        <span id="title">Search Area</span>
+        <form>
+          <label for="search">Search:</label> <br />
+          <input id="search" type="text" placeholder="Search a song" /> <br />
+          <input type="checkbox" /> YouTube <br />
+          <input type="checkbox" /> Vimeo <br />
+          <input type="checkbox" /> Lyrics <br />
+          <button id="youtube" class="button is-danger">YouTube</button>
+          <button id="vimeo" class="button is-danger">Vimeo</button>
+          <button id="lyrics" class="button is-danger">Lyrics</button>
+          <button id="search-btn" class="button is-primary">Search</button>
+        </form>
+      </div>
+      <div class="column is-mobile is-one-third-desktop" id="results">
+        <span id="title">Videos</span>
+        <section>
+          <div id="videos"></div>
+        </section>
+      </div>
+      <div class="column is-mobile is-one-third-desktop" id="lyrics">
+        <span id="title">Lyrics</span>
+      </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
+
+  <!-- We can change footer content later on -->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>Made by: Matthew, Nashica, Cody</p>
+    </div>
+  </footer>
 </html>
