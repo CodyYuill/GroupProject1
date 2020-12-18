@@ -1,8 +1,9 @@
 $(document).ready(function () {
-
+    var previousArtist = "";
     function startSearch(e)
     {
         e.preventDefault();
+        var thisArtist = $("#artist").val();
         if($("#useVimeo").is(":checked"))
         {
             vimVids();
@@ -11,9 +12,13 @@ $(document).ready(function () {
         {
             ytVids();
         }
-        if($("#artist").val())
+        if(thisArtist)
         {
-            getLyrics();
+            if(thisArtist != previousArtist)
+            {
+                previousArtist = thisArtist;
+                getLyrics();
+            }
         }
         else
         {
@@ -61,7 +66,6 @@ $(document).ready(function () {
             url: vimUrl,
             method: "GET"
         }).then(function (data) {
-            console.log(data);
             // for  loop for the data recieved.
             $.each(data.data, function (i, item) {
                 //created p tag for video title.
@@ -86,14 +90,21 @@ $(document).ready(function () {
             url: lyricUrl,
             method: "GET"
         }).then(function (response) {
-            console.log(response)
             // parse lyrics
             lyrics = response.lyrics.replace(/\n/g, "<br>");
 
             // adding song-lyrics to the lyrics div
             //$("#song-lyrics").append("<h1 id='lyrics-header'>Lyrics</h1>");
             //$("#song-lyrics").append("<h6>Artist: " + artist + " | Song: " + song + "</h6>");
-            $("#lyricsPlacement").append(lyrics);
+            if(lyrics)
+            {
+                $("#lyricsPlacement").append(lyrics);
+            }
+            else
+            {
+                var noLyricsMessage = "WHOOPS! We can't find the lyrics you're looking for!";
+                $("#lyricsPlacement").append(noLyricsMessage);
+            }
         })
 
     }
@@ -105,6 +116,7 @@ $(document).ready(function () {
 
     function setLyricsMessage()
     {
+        $("#lyricsPlacement").empty();
         var noArtistMessage = $("<p>").text("To get lyrics an Artist must be provided.");
         $("#lyrics").append(noArtistMessage);
     }
