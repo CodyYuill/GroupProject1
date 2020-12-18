@@ -11,7 +11,7 @@ $(document).ready(function () {
         {
             ytVids();
         }
-        if($(".artist").val())
+        if($("#artist").val())
         {
             getLyrics();
         }
@@ -25,7 +25,7 @@ $(document).ready(function () {
         $("#videos").empty();  // clears videos when submit button clicked
 
         var key = "AIzaSyAa1zc7O33vu-6VA17JJFLnWPC9ckiXcOw";
-        var search = $(".song").val() + " " + $(".artist").val();
+        var search = $("#song").val() + " " + $("#artist").val();
         var maxResults = 6;
         var ytUrl = "https://www.googleapis.com/youtube/v3/search?key=" + key + "&videoEmbeddable=true&type=video&part=snippet&maxResults=" + maxResults + "&q=" + search;
 
@@ -54,7 +54,7 @@ $(document).ready(function () {
         $("#videos").empty();  // clears videos when submit button clicked
         //var test = "beyonce";
         var accessToken = "1d50cb8f1dbb330003a778e658d15053";
-        var search = $(".song").val() + " " + $(".artist").val();
+        var search = $("#song").val() + " " + $("#artist").val();
         var vimUrl = "https://api.vimeo.com/videos?query=" + search + "&access_token=" + accessToken;
         //creating ajax call for when the submit button is clicked.
         $.ajax({
@@ -77,10 +77,10 @@ $(document).ready(function () {
     }
     //Function to get lyrics
     function getLyrics() {
-        $("#song-lyrics").empty();  // clears videos when submit button clicked
+        $("#lyricsPlacement").empty();  // clears videos when submit button clicked
 
-        var artist = $(".artist").val();
-        var song = $(".song").val();
+        var artist = $("#artist").val();
+        var song = $("#song").val();
         var lyricUrl = "https://api.lyrics.ovh/v1/" + artist + "/" + song;
         $.ajax({
             url: lyricUrl,
@@ -93,7 +93,7 @@ $(document).ready(function () {
             // adding song-lyrics to the lyrics div
             //$("#song-lyrics").append("<h1 id='lyrics-header'>Lyrics</h1>");
             //$("#song-lyrics").append("<h6>Artist: " + artist + " | Song: " + song + "</h6>");
-            $("#lyrics").append(lyrics);
+            $("#lyricsPlacement").append(lyrics);
         })
 
     }
