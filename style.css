@@ -1,3 +1,6 @@
+body {
+  background-color: #dadada;
+}
 #title {
   text-align: center;
   font-size: xx-large;
@@ -10,13 +13,14 @@
   text-align: center;
 }
 #cannon-img {
-  max-height: 25px;
+  max-height: 225px;
 }
 #search-area {
   border: 1px solid;
   border-radius: 10px;
   text-align: center;
-  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #search {
   width: 90%;
@@ -26,16 +30,15 @@
   border: 1px solid;
   border-radius: 10px;
   text-align: center;
-  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #lyrics {
   border: 1px solid;
   border-radius: 10px;
   text-align: center;
-  margin: 10px;
-}
-body {
-  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .footer {
   background-color: antiquewhite;
@@ -60,7 +63,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #111;
+  background-color: #b8b8b8;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -92,15 +95,20 @@ body {
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
+  color: white;
+  text-align: center;
+  font-size: 21px;
+  font-weight: 500;
+  /* text-indent: 1px; */
 }
 .slider.round:before {
   border-radius: 50%;
 }
 input:checked + .slider {
-  background-color: #b8b8b8;
+  background-color: black;
 }
 input:focus + .slider {
-  box-shadow: 0 0 1px #b8b8b8;
+  box-shadow: 0 0 1px black;
 }
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);

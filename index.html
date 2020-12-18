@@ -8,37 +8,38 @@
     <title>Vibe Cannon</title>
   </head>
   <body>
+    <!-- Slider -->
     <label class="switch">
       <input type="checkbox" id="theme-switcher" />
-      <span class="slider round"></span>
+      <span class="slider round">D L</span>
     </label>
     <!-- Header -->
     <h1 id="logo">
-      <img src="./img/logo.png" id="logo" />
+      <img src="./img/logo.png" id="cannon-img" />
     </h1>
     <!-- Open the columns for responsiveness -->
     <div class="columns">
-      <div class="column is-mobile is-one-third-desktop" id="search-area">
+      <div class="column is-mobile is-one-quarter-desktop" id="search-area">
         <span id="title">Search Area</span>
         <form>
           <label for="search">Search:</label> <br />
           <input id="search" type="text" placeholder="Search a song" /> <br />
-          <input type="checkbox" /> YouTube <br />
-          <input type="checkbox" /> Vimeo <br />
-          <input type="checkbox" /> Lyrics <br />
-          <button id="youtube" class="button is-danger">YouTube</button>
+          <input type="checkbox" /> YouTube
+          <input type="checkbox" /> Vimeo 
+          <input type="checkbox" /> Lyrics 
+          <!-- <button id="youtube" class="button is-danger">YouTube</button>
           <button id="vimeo" class="button is-danger">Vimeo</button>
-          <button id="lyrics" class="button is-danger">Lyrics</button>
+          <button id="lyrics" class="button is-danger">Lyrics</button> -->
           <button id="search-btn" class="button is-primary">Search</button>
         </form>
       </div>
-      <div class="column is-mobile is-one-third-desktop" id="results">
+      <div class="column is-mobile is-two-fifths-desktop" id="results">
         <span id="title">Videos</span>
         <section>
           <div id="videos"></div>
         </section>
       </div>
-      <div class="column is-mobile is-one-third-desktop" id="lyrics">
+      <div class="column is-mobile is-one-quarter-desktop" id="lyrics">
         <span id="title">Lyrics</span>
       </div>
     </div>
