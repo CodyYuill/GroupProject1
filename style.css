@@ -1,6 +1,13 @@
 /* Document settings */
 body {
   background-color: #dadada;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.wrapper {
+  flex: 1;
+
 }
 html {
   background-color: inherit;
@@ -60,11 +67,6 @@ html {
   color: black;
   text-align: center;
   padding: 10px;
-  /* Will always show footer but at very bottom */
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  margin-top: 50px;
 }
 /* Dark theme and Light theme color settings */
 .dark {
