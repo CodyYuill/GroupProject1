@@ -6,7 +6,6 @@ $(document).ready(function () {
         var thisArtist = $("#artist").val();
         if(!$("#song").val())
         {
-            //TODO create an error modal telling user they need to fill in the song field
             incompleteSongFieldError();
             return;
         }
@@ -111,8 +110,6 @@ $(document).ready(function () {
             lyrics = response.lyrics.replace(/\n/g, "<br>");
 
             // adding song-lyrics to the lyrics div
-            //$("#song-lyrics").append("<h1 id='lyrics-header'>Lyrics</h1>");
-            //$("#song-lyrics").append("<h6>Artist: " + artist + " | Song: " + song + "</h6>");
             if (lyrics) {
                 $("#lyricsPlacement").append(lyrics);
             } else {
@@ -121,6 +118,11 @@ $(document).ready(function () {
                 $("#lyricsPlacement").append(noLyricsMessage);
             }
         });
+    }
+
+    function getItunesInfo()
+    {
+        
     }
 
     function setIframeWidthHeight() 
@@ -151,7 +153,6 @@ $(document).ready(function () {
         modal.prepend(exitBtn);
         $("#noSongModal").append(modal);
         $("#exitBtn").click(function(){
-            console.log("kill");
             $("#noSongError").remove();
         });
     }
