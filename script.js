@@ -81,7 +81,7 @@ $(document).ready(function () {
     }
     //Function to get lyrics
     function getLyrics() {
-        $("#lyricsPlacement").empty();  // clears videos when submit button clicked
+        $("#lyricsPlacement").empty();  // clears lyrics when submit button clicked
 
         var artist = $("#artist").val();
         var song = $("#song").val();
