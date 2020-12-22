@@ -150,3 +150,11 @@ input:checked + .slider:before {
   overflow: auto;
   max-height: 1025px;
  }
+
+ .errorModal{
+   margin: auto;
+   margin-bottom: 25px;
+   max-width: 25%;
+   text-align: center;
+   font-size: 25px;
+ }

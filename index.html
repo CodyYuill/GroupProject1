@@ -19,6 +19,8 @@
         <img src="#" id="cannon-img" alt="vibe-cannon-image" />
       <!-- <img src="./img/logoD.png" id="cannon-dark"/> -->
       </header>
+      <!-- area for so song field error message -->
+      <div id="noSongModal"></div>
       <!-- Open the columns for responsiveness -->
       <div class="columns">
         <section class="column is-mobile is-one-quarter-desktop" id="search-area">
@@ -30,12 +32,11 @@
             id="song"
             class="search"
             type="text"
-            placeholder="Song title"
+            placeholder="Song Title"
             />
             <input id="artist" class="search" type="text" placeholder="Artist" />
             <br />
             <input type="checkbox" id="useVimeo" /> Use Vimeo instead of Youtube
-            <input type="checkbox" /> Lyrics
            <button id="search-btn" class="button is-primary">Search</button>
           </form>
         </section>
