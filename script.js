@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     var key = "AIzaSyAa1zc7O33vu-6VA17JJFLnWPC9ckiXcOw";
     var search = $("#song").val() + " " + $("#artist").val();
-    var maxResults = 6;
+    var maxResults = 3;
     var ytUrl =
       "https://www.googleapis.com/youtube/v3/search?key=" +
       key +
@@ -55,9 +55,10 @@ $(document).ready(function () {
     $("#videos").empty(); // clears videos when submit button clicked
     //var test = "beyonce";
     var accessToken = "1d50cb8f1dbb330003a778e658d15053";
+    var numResults = 3;
     var search = $("#song").val() + " " + $("#artist").val();
     var vimUrl =
-      "https://api.vimeo.com/videos?query=" +
+      "https://api.vimeo.com/videos?per_page=" + numResults + "& query=" +
       search +
       "&access_token=" +
       accessToken;

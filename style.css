@@ -1,6 +1,13 @@
 /* Document settings */
 body {
   background-color: #dadada;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.wrapper {
+  flex: 1;
+
 }
 html {
   background-color: inherit;
@@ -36,6 +43,7 @@ html {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 .search {
   width: 90%;
@@ -47,6 +55,7 @@ html {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 #lyrics {
   border: 1px solid;
@@ -54,17 +63,14 @@ html {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 .footer {
   background-color: antiquewhite;
   color: black;
   text-align: center;
   padding: 10px;
-  /* Will always show footer but at very bottom */
   width: 100%;
-  position: relative;
-  bottom: 0;
-  margin-top: 50px;
 }
 /* Dark theme and Light theme color settings */
 .dark {
@@ -138,3 +144,9 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+/* Lyrics Styling*/
+#lyricsPlacement {
+  overflow: auto;
+  max-height: 1025px;
+ }
