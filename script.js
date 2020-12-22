@@ -9,6 +9,7 @@ $(document).ready(function () {
             incompleteSongFieldError();
             return;
         }
+        getItunesInfo();
         if ($("#useVimeo").is(":checked")) 
         {
             vimVids();
@@ -122,7 +123,18 @@ $(document).ready(function () {
 
     function getItunesInfo()
     {
-        
+        var search = $("#song").val() + " " + $("#artist").val();
+        var queryURL = `https://itunes.apple.com/search?term=${search}&country=CA&media=music&entity=musicTrack&limit=1`
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function(data){
+            var trackData = JSON.parse(data);
+            var trackName = trackData.results[0].trackName;
+            var albumName = trackData.results[0].collectionName;
+            var albumArt = trackData.results[0].artworkUrl100;
+            console.log(`trackName = ${trackName} || albumName = ${albumName} || albumArt url = ${albumArt}`);
+        });
     }
 
     function setIframeWidthHeight() 
