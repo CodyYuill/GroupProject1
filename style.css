@@ -1,19 +1,41 @@
+/* Document settings */
 body {
   background-color: #dadada;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
+.wrapper {
+  flex: 1;
+
+}
+html {
+  background-color: inherit;
+}
+/* Vibe Cannon Image Logo Settings */
+.logo {
+  text-align: center;
+  max-height: 250px;
+}
+#cannon-img {
+  max-height: 300px;
+}
+/* Titles for the three columns */
 #title {
   text-align: center;
   font-size: xx-large;
   font-weight: 900;
-  color: black;
   margin: 20px;
 }
-#logo {
-  max-height: 200px;
+.columns {
+  background-color: inherit;
   text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
-#cannon-img {
-  max-height: 225px;
+.is-mobile {
+  width: 90%;
 }
 #search-area {
   border: 1px solid;
@@ -21,6 +43,7 @@ body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 .search {
   width: 90%;
@@ -32,6 +55,7 @@ body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 #lyrics {
   border: 1px solid;
@@ -39,22 +63,26 @@ body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 .footer {
   background-color: antiquewhite;
+  color: black;
+  text-align: center;
   padding: 10px;
+  width: 100%;
 }
+/* Dark theme and Light theme color settings */
 .dark {
-  background-color: #333;
+  background-color: #202020;
   color: white;
   height: 100vh;
 }
 .light {
-  background-color: #2196f3;
-  color: white;
+  background-color: #dadada;
+  color: black;
   height: 100vh;
 }
-
 /* The slider */
 .slider {
   position: absolute;
@@ -98,8 +126,9 @@ body {
   color: white;
   text-align: center;
   font-size: 21px;
-  font-weight: 500;
-  /* text-indent: 1px; */
+  font-weight: 400;
+  user-select: none;
+  text-indent: -5px;
 }
 .slider.round:before {
   border-radius: 50%;
@@ -115,3 +144,9 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+/* Lyrics Styling*/
+#lyricsPlacement {
+  overflow: auto;
+  max-height: 1025px;
+ }

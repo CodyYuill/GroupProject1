@@ -8,54 +8,54 @@
     <title>Vibe Cannon</title>
   </head>
   <body>
-    <!-- Slider -->
-    <label class="switch">
-      <input type="checkbox" id="theme-switcher" />
-      <span class="slider round">D L</span>
-    </label>
-    <!-- Header -->
-    <h1 id="logo">
-      <img src="./img/logo.png" id="cannon-img" />
-    </h1>
-    <!-- Open the columns for responsiveness -->
-    <div class="columns">
-      <div class="column is-mobile is-one-quarter-desktop" id="search-area">
-        <span id="title">Search Area</span>
-        <form>
-          <!-- Song Search Area -->
-          <label for="song">Search:</label> <br />
-          <input id="song" class="search" type="text" placeholder="Song title" />
-          <input id="artist" class="search" type="text" placeholder="Artist" /> <br />
-          <input type="checkbox" id="useVimeo"/> Use Vimeo instead of Youtube 
-          <input type="checkbox" /> Lyrics 
-          <!-- <button id="youtube" class="button is-danger">YouTube</button>
-          <button id="vimeo" class="button is-danger">Vimeo</button>
-          <button id="lyrics" class="button is-danger">Lyrics</button> -->
-          <button id="search-btn" class="button is-primary">Search</button>
-        </form>
-      </div>
-      <div class="column is-mobile is-two-fifths-desktop" id="results">
-        <span id="title">Videos</span>
-        <section>
+    <main class="wrapper">
+      <!-- Slider -->
+      <label class="switch">
+        <input type="checkbox" id="theme-switcher" />
+        <span class="slider round">D L</span>
+      </label>
+      <!-- Header -->
+      <header class="logo">
+        <img src="#" id="cannon-img" alt="vibe-cannon-image" />
+      <!-- <img src="./img/logoD.png" id="cannon-dark"/> -->
+      </header>
+      <!-- Open the columns for responsiveness -->
+      <div class="columns">
+        <section class="column is-mobile is-one-quarter-desktop" id="search-area">
+          <span id="title">Search Area</span>
+          <form>
+            <!-- Song Search Area -->
+            <label for="song">Search:</label> <br />
+            <input
+            id="song"
+            class="search"
+            type="text"
+            placeholder="Song title"
+            />
+            <input id="artist" class="search" type="text" placeholder="Artist" />
+            <br />
+            <input type="checkbox" id="useVimeo" /> Use Vimeo instead of Youtube
+           <button id="search-btn" class="button is-primary">Search</button>
+          </form>
+        </section>
+        <!-- Video Display Area -->
+        <section class="column is-mobile is-two-fifths-desktop" id="results">
+          <span id="title">Videos</span>
           <div id="videos"></div>
         </section>
+        <!-- Lyrics Display Area -->
+        <section class="column is-mobile is-one-quarter-desktop" id="lyrics">
+          <span id="title">Lyrics</span> <br />
+          <div id="lyricsPlacement"></div>
+        </section>
       </div>
-      <div class="column is-mobile is-one-quarter-desktop" id="lyrics">
-        <span id="title">Lyrics</span> <br />
-        <div id="lyricsPlacement">
-          
-        </div>
-      </div>
-    </div>
-
+    </main>
+     <!-- We can change footer content later on -->
+    <footer class="footer">
+      <p>Made by: Matthew, Nashica, Cody</p>
+    </footer>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
-  </body>
-
-  <!-- We can change footer content later on -->
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>Made by: Matthew, Nashica, Cody</p>
-    </div>
-  </footer>
+  </body> 
 </html>
