@@ -129,11 +129,11 @@ $(document).ready(function () {
 
         var search = $("#song").val() + " " + $("#artist").val();
         var queryURL = `https://itunes.apple.com/search?term=${search}&country=CA&media=music&entity=musicTrack&limit=1`
-        
+
         $.ajax({
             url: queryURL,
             method: "GET", 
-            header:{"Access-Control-Allow-Origin": "*"}
+            headers:{"Access-Control-Allow-Origin": "*"}
         }).done(function(data){
             //parse data into JSON format 
             var trackData = JSON.parse(data);
