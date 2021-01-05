@@ -56,7 +56,7 @@ $(document).ready(function () {
             $.each(data.items, function (i, item) {
                 //created p tag for video title.
                 var p = $("<p>");
-                p.text(item.snippet.title);
+                p.html(item.snippet.title);
                 //append p tag and iframe with video id to video section.
                 $("#videos").append(
                     p,
@@ -87,7 +87,7 @@ $(document).ready(function () {
             $.each(data.data, function (i, item) {
                 //created p tag for video title.
                 var p = $("<p>");
-                p.text(item.name);
+                p.html(item.name);
                 //append p tag and iframe with video id to video section.
                 $("#videos").append(p, `${item.embed.html}`);
 
@@ -123,6 +123,10 @@ $(document).ready(function () {
 
     function getItunesInfo()
     {
+
+        $("#album-art").empty();
+        $("#track-info").empty();
+
         var search = $("#song").val() + " " + $("#artist").val();
         var queryURL = `https://itunes.apple.com/search?term=${search}&country=CA&media=music&entity=musicTrack&limit=1`
         $.ajax({
@@ -131,9 +135,17 @@ $(document).ready(function () {
         }).done(function(data){
             var trackData = JSON.parse(data);
             var trackName = trackData.results[0].trackName;
+            var artist = trackData.results[0].artistName;
             var albumName = trackData.results[0].collectionName;
             var albumArt = trackData.results[0].artworkUrl100;
-            console.log(`trackName = ${trackName} || albumName = ${albumName} || albumArt url = ${albumArt}`);
+
+            var aAElem = $('<img>').attr("src", albumArt);
+            //aAElem.attr("class", "make-inline");
+            var tNArtistElem = $("<p>").text(`${trackName} by ${artist}`);
+            var aNElem = $("<p>").text(albumName);
+            $("#album-art").append(aAElem);
+            $("#track-info").append(tNArtistElem, aNElem);
+            //console.log(`trackName = ${trackName} || artist = ${artist} || albumName = ${albumName} || albumArt url = ${albumArt}`);
         });
     }
 

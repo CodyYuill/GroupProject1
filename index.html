@@ -23,22 +23,36 @@
       <div id="noSongModal"></div>
       <!-- Open the columns for responsiveness -->
       <div class="columns">
-        <section class="column is-mobile is-one-quarter-desktop" id="search-area">
-          <span id="title">Search Area</span>
-          <form>
-            <!-- Song Search Area -->
-            <label for="song">Search:</label> <br />
-            <input
-            id="song"
-            class="search"
-            type="text"
-            placeholder="Song Title"
-            />
-            <input id="artist" class="search" type="text" placeholder="Artist" />
-            <br />
-            <input type="checkbox" id="useVimeo" /> Use Vimeo instead of Youtube
-           <button id="search-btn" class="button is-primary">Search</button>
-          </form>
+        <section class="column is-mobile is-one-quarter-desktop" >
+          <!-- search row -->
+          <!-- Song Search Area -->
+          <div class="row is-full" id="search-area">
+            <form>
+              <span id="title">Search Area</span>
+              <label for="song">Search:</label> <br />
+              <input
+              id="song"
+              class="search"
+              type="text"
+              placeholder="Song Title"
+              />
+              <input id="artist" class="search" type="text" placeholder="Artist" />
+              <br />
+              <input type="checkbox" id="useVimeo" /> Use Vimeo instead of Youtube
+             <button id="search-btn" class="button is-primary">Search</button>
+            </form>
+          </div>
+          <!-- ITunes row -->
+          <div class="row is-full" id="itunes-area">
+            <div class="columns">
+              <!-- ALBUM ART COLUMN -->
+              <div class="column is-mobile is-one-quarter-desktop" id="album-art"></div>
+              <!-- REST OF INFO -->
+              <div class="column is-mobile is-three-quarters-desktop" id="track-info"></div>
+            </div>
+
+          </div>
+          
         </section>
         <!-- Video Display Area -->
         <section class="column is-mobile is-two-fifths-desktop" id="results">
