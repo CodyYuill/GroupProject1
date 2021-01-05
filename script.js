@@ -146,10 +146,8 @@ $(document).ready(function () {
     function setLyricsMessage() 
     {
         $("#lyricsPlacement").empty();
-        var noArtistMessage = $("<p>").text(
-            "To get lyrics an Artist must be provided."
-        );
-        $("#lyrics").append(noArtistMessage);
+        var noArtistMessage = "To get lyrics an Artist must be provided.";        
+        $("#lyricsPlacement").append(noArtistMessage);
     }
 
     function incompleteSongFieldError()
