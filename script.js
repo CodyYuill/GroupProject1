@@ -133,16 +133,34 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).done(function(data){
+            //parse data into JSON format 
             var trackData = JSON.parse(data);
+            //grab data we want
             var trackName = trackData.results[0].trackName;
             var artist = trackData.results[0].artistName;
             var albumName = trackData.results[0].collectionName;
             var albumArt = trackData.results[0].artworkUrl100;
-
+            //create album art img element
             var aAElem = $('<img>').attr("src", albumArt);
-            //aAElem.attr("class", "make-inline");
-            var tNArtistElem = $("<p>").text(`${trackName} by ${artist}`);
+            //create track name anchor element
+            var trackAnchor = $("<a>").text(`${trackName}`);
+            //link the track preview page provided by apple
+            trackAnchor.attr("href", `${trackData.results[0].trackViewUrl}`)
+            //open in new tab
+            trackAnchor.attr("target", `_blank`);
+            //create artist name anchor element 
+            var artistAnchor = $("<a>").text(`${artist}`);
+            //link artis preview pagfe provided by apple
+            artistAnchor.attr("href", `${trackData.results[0].artistViewUrl}`)  
+            //open in new tab
+            artistAnchor.attr("target", `_blank`);
+            //create a p element to put track name and artist into 
+            var tNArtistElem = $("<p>");
+            tNArtistElem.append(trackAnchor, " by ", artistAnchor);
+            //creater album name p element 
             var aNElem = $("<p>").text(albumName);
+
+            //append everything
             $("#album-art").append(aAElem);
             $("#track-info").append(tNArtistElem, aNElem);
             //console.log(`trackName = ${trackName} || artist = ${artist} || albumName = ${albumName} || albumArt url = ${albumArt}`);
