@@ -65,9 +65,17 @@ html {
   margin-right: auto;
   margin-bottom: 20px;
 }
+/* Styles for footer with dark/light theme*/
 .footer {
-  background-color: antiquewhite;
+  background-color: rgba(90, 85, 85, 0.828) ;
   color: black;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+.footer-d {
+  background-color: #272626;
+  color: white;
   text-align: center;
   padding: 10px;
   width: 100%;

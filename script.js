@@ -172,27 +172,30 @@ $(document).ready(function () {
     $("#search-btn").click(startSearch);
 
     // Theme Switcher
-    var themeSwitcher = document.querySelector("#theme-switcher");
-    var body = document.querySelector("body");
-    var cannonImg = document.getElementById("cannon-img");
     var mode = "light";
     // Set everything to light mode at the start
-    body.setAttribute("class", "light");
-    cannonImg.src = "./img/logo.png";
+    $("body").attr("class","light");
+    $("#cannon-img").attr("src","./img/logo.png");
 
-    themeSwitcher.addEventListener("click", function () {
+    //Event Listener for theme switcher.
+    $("#theme-switcher").click(function () {
         // Switch from light to dark
         if (mode === "light") {
             mode = "dark";
-            body.setAttribute("class", "dark");
-            cannonImg.src = "./img/logoD.png";
+            $("body").attr("class","dark");
+            $("footer").attr("class","footer-d");
+            $("#cannon-img").attr("src","./img/logoD.png");
         } 
         else 
         {
             // Switch from dark to light
             mode = "light";
-            body.setAttribute("class", "light");
-            cannonImg.src = "./img/logo.png";
+            $("body").attr("class","light");
+            $("footer").attr("class","footer");
+            $("#cannon-img").attr("src","./img/logo.png");
         }
+
+        
     });
-});
+})
+
