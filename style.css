@@ -49,6 +49,27 @@ html {
   width: 90%;
   margin: 10px;
 }
+#itunes-area{
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: initial !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+#track-info{
+  text-align: initial !important;
+}
+#track-info p:nth-child(1)
+{
+  font-size: 23px;
+}
+.previewLinks{
+  color: #fa233b;
+}
+#album-art{
+  margin-top: 5px;
+}
 #results {
   border: 1px solid;
   border-radius: 10px;
@@ -165,4 +186,8 @@ input:checked + .slider:before {
    max-width: 25%;
    text-align: center;
    font-size: 25px;
+ }
+
+ .make-inline{
+   display: inline;
  }

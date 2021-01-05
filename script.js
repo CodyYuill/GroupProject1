@@ -56,7 +56,7 @@ $(document).ready(function () {
             $.each(data.items, function (i, item) {
                 //created p tag for video title.
                 var p = $("<p>");
-                p.text(item.snippet.title);
+                p.html(item.snippet.title);
                 //append p tag and iframe with video id to video section.
                 $("#videos").append(
                     p,
@@ -87,7 +87,7 @@ $(document).ready(function () {
             $.each(data.data, function (i, item) {
                 //created p tag for video title.
                 var p = $("<p>");
-                p.text(item.name);
+                p.html(item.name);
                 //append p tag and iframe with video id to video section.
                 $("#videos").append(p, `${item.embed.html}`);
 
@@ -123,17 +123,51 @@ $(document).ready(function () {
 
     function getItunesInfo()
     {
+
+        $("#album-art").empty();
+        $("#track-info").empty();
+
         var search = $("#song").val() + " " + $("#artist").val();
         var queryURL = `https://itunes.apple.com/search?term=${search}&country=CA&media=music&entity=musicTrack&limit=1`
         $.ajax({
             url: queryURL,
             method: "GET"
         }).done(function(data){
+            //parse data into JSON format 
             var trackData = JSON.parse(data);
+            //grab data we want
             var trackName = trackData.results[0].trackName;
+            var artist = trackData.results[0].artistName;
             var albumName = trackData.results[0].collectionName;
             var albumArt = trackData.results[0].artworkUrl100;
-            console.log(`trackName = ${trackName} || albumName = ${albumName} || albumArt url = ${albumArt}`);
+            //create album art img element
+            var aAElem = $('<img>').attr("src", albumArt);
+            //create track name anchor element
+            var trackAnchor = $("<a>").text(`${trackName}`);
+            //link the track preview page provided by apple
+            trackAnchor.attr("href", `${trackData.results[0].trackViewUrl}`)
+            //open in new tab
+            trackAnchor.attr("target", `_blank`);
+            //give class to change font color
+            trackAnchor.attr("class", `previewLinks`);
+            //create artist name anchor element 
+            var artistAnchor = $("<a>").text(`${artist}`);
+            //link artis preview pagfe provided by apple
+            artistAnchor.attr("href", `${trackData.results[0].artistViewUrl}`)  
+            //open in new tab
+            artistAnchor.attr("target", `_blank`);
+            //give class to change font color
+            artistAnchor.attr("class", `previewLinks`);
+            //create a p element to put track name and artist into 
+            var tNArtistElem = $("<p>");
+            tNArtistElem.append(trackAnchor, " by ", artistAnchor);
+            //creater album name p element 
+            var aNElem = $("<p>").text(albumName);
+
+            //append everything
+            $("#album-art").append(aAElem);
+            $("#track-info").append(tNArtistElem, aNElem);
+            //console.log(`trackName = ${trackName} || artist = ${artist} || albumName = ${albumName} || albumArt url = ${albumArt}`);
         });
     }
 
@@ -146,10 +180,8 @@ $(document).ready(function () {
     function setLyricsMessage() 
     {
         $("#lyricsPlacement").empty();
-        var noArtistMessage = $("<p>").text(
-            "To get lyrics an Artist must be provided."
-        );
-        $("#lyrics").append(noArtistMessage);
+        var noArtistMessage = "To get lyrics an Artist must be provided.";        
+        $("#lyricsPlacement").append(noArtistMessage);
     }
 
     function incompleteSongFieldError()
