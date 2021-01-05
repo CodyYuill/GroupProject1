@@ -63,7 +63,9 @@ html {
 #track-info p:nth-child(1)
 {
   font-size: 23px;
-  margin-top: 15px;
+}
+.previewLinks{
+  color: #fa233b;
 }
 #album-art{
   margin-top: 5px;

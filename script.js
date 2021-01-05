@@ -148,12 +148,16 @@ $(document).ready(function () {
             trackAnchor.attr("href", `${trackData.results[0].trackViewUrl}`)
             //open in new tab
             trackAnchor.attr("target", `_blank`);
+            //give class to change font color
+            trackAnchor.attr("class", `previewLinks`);
             //create artist name anchor element 
             var artistAnchor = $("<a>").text(`${artist}`);
             //link artis preview pagfe provided by apple
             artistAnchor.attr("href", `${trackData.results[0].artistViewUrl}`)  
             //open in new tab
             artistAnchor.attr("target", `_blank`);
+            //give class to change font color
+            artistAnchor.attr("class", `previewLinks`);
             //create a p element to put track name and artist into 
             var tNArtistElem = $("<p>");
             tNArtistElem.append(trackAnchor, " by ", artistAnchor);
