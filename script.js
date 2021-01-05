@@ -129,6 +129,7 @@ $(document).ready(function () {
 
         var search = $("#song").val() + " " + $("#artist").val();
         var queryURL = `https://itunes.apple.com/search?term=${search}&country=CA&media=music&entity=musicTrack&limit=1`
+        
         $.ajax({
             url: queryURL,
             method: "GET", 
