@@ -1,4 +1,4 @@
-# Vibe Cannon
+<img src="img/logo.png" alt= "vibe Cannon logo">
 
 We are team vibes.  After the world experienced the biggest 404 error in our lifetime, aka  2020, as web developers we decided that the world needs some good vibes. Unlike the coronavirus, when music hits you, you feel no pain. So we created an entertainment application that allows you to search, access information, watch videos, learn and even sing along to the lyrics of your favourite songs. Vibe Cannon, would you like some good vibes fired your way for 2021?
 
