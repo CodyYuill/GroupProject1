@@ -15,13 +15,13 @@ We are team vibes.  After the world experienced the biggest <b>404</b> error in 
 
 ## General Information
 
-* User Story:
+#### User Story:
 As a person experiencing lockdown due to a global pandemic, I want to be able to search for my favorite songs. I am given information, videos and the lyrics of these songs so that I can entertain myself, as all public music entertainment events have been cancelled.
 
-* Project description:
+#### Project description:
 Vibe Cannon is an entertainment application that allows the user to access their favorite songs. In addition, the user is able get information from about the song, watch music videos as well as access lyrics if they are available. We have used the most popular music api to access this information, so Vibe Cannon is your one stop shop for you music entertainment needs.
 
-When the page loads
+###### When the page loads:
 - The user is able to enter the name of the artiste and the name of the song.
 - The default video play is YouTube, however the user has the option to view Vimeo videos. (YouTube API has 50 daily video per call, once quota is up Vimeo video will play as default)
 - When the user clicks the search button, they get a link to itunes with information about the song, the top 3 videos and the lyrics of the song (if avaialable).
