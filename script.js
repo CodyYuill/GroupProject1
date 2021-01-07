@@ -47,7 +47,7 @@ $(document).ready(function () {
             if (error) {
                 var noYtMessage =
                     "WHOOPS! YouTube is unavailable, use Vimeo instead.";
-                $("videos").append(noYtMessage);
+                $("#feedback").append(noYtMessage);
                 vimVids();
             }
         }).then(function (data) {
@@ -106,7 +106,8 @@ $(document).ready(function () {
             method: "GET",
         }).then(function (response) {
             // parse lyrics
-            lyrics = response.lyrics.replace(/\n/g, "<br>");
+            // lyrics = response.lyrics;
+            lyrics = response.lyrics.replace(/\n*\n/g, '<br>');
 
             // adding song-lyrics to the lyrics div
             if (lyrics) {
