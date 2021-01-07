@@ -192,12 +192,25 @@ input:checked + .slider:before {
    display: inline;
  }
 
-  @media (max-width: 575.98px) { 
-  iframe {
-    width: 320px;
-    height: 315px;
-  }
- }
+/*Media Queries for videos*/
+  @media (min-width: 280px) and (max-width: 386.98px) { 
+    iframe {
+      width: 250px !important;
+      height: 315px !important;
+    }
+   }
+   @media (min-width: 387px) and (max-width: 575.98px) { 
+    iframe {
+      width: 325px !important;
+      height: 315px !important;
+    }
+   }
+   @media (min-width: 1024px) and (max-width: 1110.98px) { 
+    iframe {
+      width: 325px !important;
+      height: 315px !important;
+    }
+   }
 
  
 
