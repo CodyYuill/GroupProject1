@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="bulma.css" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Vibe Cannon</title>
-  </head>
-  <body>
-    <main class="wrapper">
-      <!-- Slider -->
-      <label class="switch">
-        <input type="checkbox" id="theme-switcher" />
-        <span class="slider round">D L</span>
-      </label>
-      <!-- Header -->
-      <header class="logo">
-        <img src="#" id="cannon-img" alt="vibe-cannon-image" />
-      <!-- <img src="./img/logoD.png" id="cannon-dark"/> -->
-      </header>
-      <!-- area for so song field error message -->
-      <div id="noSongModal"></div>
-      <!-- Open the columns for responsiveness -->
-      <div class="columns">
-        <section class="column is-mobile is-one-quarter-desktop" >
-          <!-- search row -->
-          <!-- Song Search Area -->
-          <div class="row is-full" id="search-area">
-            <form>
-              <span id="title">Search Area</span>
-              <label for="song">Search:</label> <br />
-              <input
-              id="song"
-              class="search"
-              type="text"
-              placeholder="Song Title"
-              />
-              <input id="artist" class="search" type="text" placeholder="Artist" />
-              <br />
-              <input type="checkbox" id="useVimeo" /> Use Vimeo instead of Youtube
-             <button id="search-btn" class="button is-primary">Search</button>
-            </form>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="bulma.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+  <title>Vibe Cannon</title>
+</head>
+
+<body>
+  <main class="wrapper">
+    <!-- Slider -->
+    <label class="switch">
+      <input type="checkbox" id="theme-switcher" />
+      <span class="slider round">D L</span>
+    </label>
+    <!-- Header -->
+    <header class="logo">
+      <img src="#" id="cannon-img" alt="vibe-cannon-image" />
+    </header>
+    <!-- area for no song field error message -->
+    <div id="noSongModal"></div>
+    <!-- Open the columns for responsiveness -->
+    <div class="columns">
+      <section class="column is-mobile is-one-quarter-desktop">
+        <!-- search row -->
+        <!-- Song Search Area -->
+        <div class="row is-full" id="search-area">
+          <form>
+            <span id="title">Search </span>
+            <input id="song" class="search" type="text" placeholder="Song Title" />
+            <input id="artist" class="search" type="text" placeholder="Artist" />
+            <br />
+            <input type="checkbox" id="useVimeo" /> Use Vimeo
+            <button id="search-btn" class="button is-primary">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+          <br />
           <!-- ITunes row -->
           <div class="row is-full" id="itunes-area">
             <div class="columns">
@@ -51,29 +49,30 @@
               <!-- REST OF INFO -->
               <div class="column is-mobile" id="track-info"></div>
             </div>
-
           </div>
+        </div>
           
-        </section>
-        <!-- Video Display Area -->
-        <section class="column is-mobile is-two-fifths-desktop" id="results">
-          <span id="title">Videos</span>
-          <div id="videos"></div>
-        </section>
-        <!-- Lyrics Display Area -->
-        <section class="column is-mobile is-one-quarter-desktop" id="lyrics">
-          <span id="title">Lyrics</span> <br />
-          <div id="lyricsPlacement"></div>
-        </section>
-      </div>
-    </main>
-     <!-- We can change footer content later on -->
-    <footer class="footer">
-      <p>Made with &#128526; by: Matthew, Nashica, Cody</p>
-      <p> Copyright &copy 2021</p>
-    </footer>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="script.js"></script>
-  </body> 
+      </section>
+      <!-- Video Display Area -->
+      <section class="column is-mobile is-two-fifths-desktop" id="results">
+        <span id="title">Videos</span>
+        <div id="videos"></div>
+      </section>
+      <!-- Lyrics Display Area -->
+      <section class="column is-mobile is-one-quarter-desktop" id="lyrics">
+        <span id="title">Lyrics</span> <br />
+        <div id="lyricsPlacement"></div>
+      </section>
+    </div>
+  </main>
+  <!-- We can change footer content later on -->
+  <footer class="footer">
+    <p>Made with &#128526; by: Matthew, Nashica, Cody</p>
+    <p> Copyright &copy 2021</p>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
