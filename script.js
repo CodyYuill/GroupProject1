@@ -165,9 +165,7 @@ $(document).ready(function () {
             var aNElem = $("<p>").text(albumName);
 
             //append everything
-            $(aAElem).appendTo("#album-art-FULL, #album-art-SHARED");
-            //$("#album-art-BS").append(aAElem);
-            //$("#album-art-SS").append(aAElem);
+            $("#album-art").append(aAElem);
             $("#track-info").append(tNArtistElem, aNElem);
             //console.log(`trackName = ${trackName} || artist = ${artist} || albumName = ${albumName} || albumArt url = ${albumArt}`);
         });
