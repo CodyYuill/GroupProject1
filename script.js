@@ -51,6 +51,13 @@ $(document).ready(function () {
         $.ajax({
             url: ytUrl,
             method: "GET",
+        }).catch(function (error) {
+            if (error) {
+                var noYtMessage = 
+                "WHOOPS! YouTube is unavailable, use Vimeo instead.";
+                $("videos").append(noYtMessage);
+            vimVids();
+            }
         }).then(function (data) {
             // for each loop for the data recieved.
             $.each(data.items, function (i, item) {
@@ -60,8 +67,9 @@ $(document).ready(function () {
                 //append p tag and iframe with video id to video section.
                 $("#videos").append(
                     p,
-                    `<iframe width="420" height="315" src="https://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allow="accelerometer; encrypted-media" allowfullscreen></iframe>`
+                    `<iframe src="https://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allow="accelerometer; encrypted-media" allowfullscreen></iframe>`
                 );
+                setIframeWidthHeight();
             });
         });
     }
@@ -123,7 +131,6 @@ $(document).ready(function () {
 
     function getItunesInfo()
     {
-
         $("#album-art").empty();
         $("#track-info").empty();
 
@@ -227,9 +234,10 @@ $(document).ready(function () {
             $("body").attr("class","light");
             $("footer").attr("class","footer");
             $("#cannon-img").attr("src","./img/logo.png");
-        }
-
-        
+        }  
     });
 })
+
+//Localstorage
+
 
