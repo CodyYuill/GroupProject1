@@ -7,7 +7,6 @@ body {
 }
 .wrapper {
   flex: 1;
-
 }
 html {
   background-color: inherit;
@@ -50,8 +49,6 @@ html {
   margin: 10px;
 }
 #itunes-area{
-  border: 1px solid;
-  border-radius: 10px;
   text-align: initial !important;
   margin-left: auto;
   margin-right: auto;
@@ -69,6 +66,14 @@ html {
 }
 #album-art{
   margin-top: 5px;
+}
+.button {
+  margin-left: 5px;
+}
+#useVimeo {
+  margin-top: 10px;
+  font-weight: 900;
+  margin-right: 5px;
 }
 #results {
   border: 1px solid;

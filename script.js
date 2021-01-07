@@ -234,7 +234,12 @@ $(document).ready(function () {
             $("body").attr("class","light");
             $("footer").attr("class","footer");
             $("#cannon-img").attr("src","./img/logo.png");
+<<<<<<< HEAD
+        }
+
+=======
         }  
+>>>>>>> c8294f62b9978cc5f2ce65fe69abff11c6494cae
     });
 })
 
