@@ -183,8 +183,11 @@ input:checked + .slider:before {
 #lyricsPlacement {
   overflow: auto;
   max-height: 1025px;
+  line-height: 2;
  }
-
+#feedback {
+  color: red;
+}
  .errorModal{
    margin: auto;
    margin-bottom: 25px;
