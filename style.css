@@ -64,10 +64,7 @@ html {
 .previewLinks{
   color: #fa233b;
 }
-#album-art-BS{
-  margin-top: 5px;
-}
-#album-art-SS{
+#album-art-FULL, #album-art-SHARED{
   margin-top: 5px;
 }
 .button {
@@ -200,20 +197,20 @@ input:checked + .slider:before {
  }
  @media (max-width: 1289px)
  {
-    #album-art-BS{
+    #album-art-FULL{
       display: none;
     }
-    #album-art-SS{
+    #album-art-SHARED{
       display: block;
     }
  }
 
  @media (min-width: 1290px)
  {
-    #album-art-BS{
+    #album-art-FULL{
       display: block;
     }
-    #album-art-SS{
+    #album-art-SHARED{
       display: none;
     }
  }

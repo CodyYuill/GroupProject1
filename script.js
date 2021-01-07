@@ -165,7 +165,7 @@ $(document).ready(function () {
             var aNElem = $("<p>").text(albumName);
 
             //append everything
-            $(aAElem).appendTo("#album-art-BS", "#album-art-SS")
+            $(aAElem).appendTo("#album-art-FULL, #album-art-SHARED");
             //$("#album-art-BS").append(aAElem);
             //$("#album-art-SS").append(aAElem);
             $("#track-info").append(tNArtistElem, aNElem);
