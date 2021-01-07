@@ -132,9 +132,11 @@ $(document).ready(function () {
 
         $.ajax({
             url: queryURL,
-            method: "GET",
-            headers: { "Access-Control-Allow-Origin": "*" }
-        }).done(function (data) {
+            method: "GET", 
+            headers:{"Access-Control-Allow-Origin": "*"}
+        }).done(function(data){
+
+            $("#itunes-area").removeClass("hide");
             //parse data into JSON format 
             var trackData = JSON.parse(data);
             //grab data we want

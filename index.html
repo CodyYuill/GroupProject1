@@ -28,7 +28,6 @@
       <section class="column is-mobile is-one-quarter-desktop" id="search-area">
         <!-- search row -->
         <!-- Song Search Area -->
-        <div class="row is-full" >
           <form>
             <span id="title">Search </span>
             <input id="song" class="search" type="text" placeholder="Song Title" />
@@ -43,15 +42,12 @@
           <div id="feedback"></div>
           <br />
           <!-- ITunes row -->
-          <div class="row is-full" id="itunes-area">
-            <div class="columns">
-              <!-- ALBUM ART COLUMN -->
-              <div class="column is-mobile is-one-quarter-desktop" id="album-art"></div>
+            <div class="columns is-mobile is-multiline" id="itunes-area">
+              <!-- ALBUM ART COLUMNS  -->
+              <div class="column is-narrow" id="album-art"></div>
               <!-- REST OF INFO -->
-              <div class="column is-mobile is-three-quarters-desktop" id="track-info"></div>
+              <div class="column" id="track-info"></div>
             </div>
-          </div>
-        </div>
       </section>
       <!-- Video Display Area -->
       <section class="column is-mobile is-two-fifths-desktop" id="results">
