@@ -83,6 +83,9 @@ html {
   margin-right: auto;
   margin-bottom: 20px;
 }
+#video-img {
+  max-height: 200px;
+}
 #lyrics {
   border: 1px solid;
   border-radius: 10px;
@@ -90,6 +93,10 @@ html {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+}
+#lyrics-img {
+  margin-top: 50px;
+  max-width: 300px;
 }
 /* Styles for footer with dark/light theme*/
 .footer {

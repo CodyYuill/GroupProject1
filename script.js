@@ -1,8 +1,9 @@
 $(document).ready(function () {
     var previousArtist = "";
     function startSearch(e) {
+        $("#feedback").text("");
         e.preventDefault();
-        var thisArtist = $("#artist").val();
+        var thisArtist = $("#artist").val().trim();
         if (!$("#song").val()) {
             incompleteSongFieldError();
             return;
@@ -23,13 +24,15 @@ $(document).ready(function () {
         else {
             setLyricsMessage();
         }
+        $("#video-img").hide();
+        $("#lyrics-img").hide();
     }
 
     function ytVids() {
         $("#videos").empty(); // clears videos when submit button clicked
 
         var key = "AIzaSyAa1zc7O33vu-6VA17JJFLnWPC9ckiXcOw";
-        var search = $("#song").val() + " " + $("#artist").val();
+        var search = $("#song").val().trim() + " " + $("#artist").val().trim();
         var maxResults = 3;
         var ytUrl =
             "https://www.googleapis.com/youtube/v3/search?key=" +
@@ -71,7 +74,7 @@ $(document).ready(function () {
         //var test = "beyonce";
         var accessToken = "1d50cb8f1dbb330003a778e658d15053";
         var numResults = 3;
-        var search = $("#song").val() + " " + $("#artist").val();
+        var search = $("#song").val().trim() + " " + $("#artist").val().trim();
         var vimUrl =
             "https://api.vimeo.com/videos?per_page=" + numResults + "&query=" +
             search +
@@ -98,8 +101,8 @@ $(document).ready(function () {
     function getLyrics() {
         $("#lyricsPlacement").empty(); // clears videos when submit button clicked
 
-        var artist = $("#artist").val();
-        var song = $("#song").val();
+        var artist = $("#artist").val().trim();
+        var song = $("#song").val().trim();
         var lyricUrl = "https://api.lyrics.ovh/v1/" + artist + "/" + song;
         $.ajax({
             url: lyricUrl,
@@ -124,7 +127,7 @@ $(document).ready(function () {
         $("#album-art").empty();
         $("#track-info").empty();
 
-        var search = $("#song").val() + " " + $("#artist").val();
+        var search = $("#song").val().trim() + " " + $("#artist").val().trim();
         var queryURL = `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=${search}&country=CA&media=music&entity=musicTrack&limit=1`
 
         $.ajax({
