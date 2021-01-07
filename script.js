@@ -229,7 +229,6 @@ $(document).ready(function () {
             $("#cannon-img").attr("src","./img/logo.png");
         }
 
-        
     });
 })
 
