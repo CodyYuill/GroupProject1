@@ -135,6 +135,8 @@ $(document).ready(function () {
             method: "GET", 
             headers:{"Access-Control-Allow-Origin": "*"}
         }).done(function(data){
+
+            $("#itunes-area").removeClass("hide");
             //parse data into JSON format 
             var trackData = JSON.parse(data);
             //grab data we want
@@ -167,7 +169,8 @@ $(document).ready(function () {
             var aNElem = $("<p>").text(albumName);
 
             //append everything
-            $("#album-art").append(aAElem);
+            $("#album-art-BS").append(aAElem);
+            //$("#album-art-SS").append(aAElem);
             $("#track-info").append(tNArtistElem, aNElem);
             //console.log(`trackName = ${trackName} || artist = ${artist} || albumName = ${albumName} || albumArt url = ${albumArt}`);
         });

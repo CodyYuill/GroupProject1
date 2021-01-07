@@ -67,7 +67,10 @@ html {
 .previewLinks{
   color: #fa233b;
 }
-#album-art{
+#album-art-BS{
+  margin-top: 5px;
+}
+#album-art-SS{
   margin-top: 5px;
 }
 #results {
@@ -187,7 +190,22 @@ input:checked + .slider:before {
    text-align: center;
    font-size: 25px;
  }
+ @media (max-width: 1289px)
+ {
+    #album-art-BS{
+      display: none;
+    }
+    #album-art-SS{
+      display: block;
+    }
+ }
 
- .make-inline{
-   display: inline;
+ @media (min-width: 1290px)
+ {
+    #album-art-BS{
+      display: block;
+    }
+    #album-art-SS{
+      display: none;
+    }
  }
