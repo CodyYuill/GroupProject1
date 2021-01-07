@@ -1,39 +1,31 @@
 $(document).ready(function () {
     var previousArtist = "";
-    function startSearch(e) 
-    {
+    function startSearch(e) {
         e.preventDefault();
         var thisArtist = $("#artist").val();
-        if(!$("#song").val())
-        {
+        if (!$("#song").val()) {
             incompleteSongFieldError();
             return;
         }
         getItunesInfo();
-        if ($("#useVimeo").is(":checked")) 
-        {
+        if ($("#useVimeo").is(":checked")) {
             vimVids();
-        } 
-        else 
-        {
+        }
+        else {
             ytVids();
         }
-        if (thisArtist) 
-        {
-            if (thisArtist != previousArtist) 
-            {
+        if (thisArtist) {
+            if (thisArtist != previousArtist) {
                 previousArtist = thisArtist;
                 getLyrics();
             }
-        } 
-        else 
-        {
+        }
+        else {
             setLyricsMessage();
         }
     }
 
-    function ytVids() 
-    {
+    function ytVids() {
         $("#videos").empty(); // clears videos when submit button clicked
 
         var key = "AIzaSyAa1zc7O33vu-6VA17JJFLnWPC9ckiXcOw";
@@ -53,10 +45,10 @@ $(document).ready(function () {
             method: "GET",
         }).catch(function (error) {
             if (error) {
-                var noYtMessage = 
-                "WHOOPS! YouTube is unavailable, use Vimeo instead.";
+                var noYtMessage =
+                    "WHOOPS! YouTube is unavailable, use Vimeo instead.";
                 $("videos").append(noYtMessage);
-            vimVids();
+                vimVids();
             }
         }).then(function (data) {
             // for each loop for the data recieved.
@@ -74,8 +66,7 @@ $(document).ready(function () {
         });
     }
 
-    function vimVids() 
-    {
+    function vimVids() {
         $("#videos").empty(); // clears videos when submit button clicked
         //var test = "beyonce";
         var accessToken = "1d50cb8f1dbb330003a778e658d15053";
@@ -104,8 +95,7 @@ $(document).ready(function () {
         });
     }
     //Function to get lyrics
-    function getLyrics() 
-    {
+    function getLyrics() {
         $("#lyricsPlacement").empty(); // clears videos when submit button clicked
 
         var artist = $("#artist").val();
@@ -129,8 +119,7 @@ $(document).ready(function () {
         });
     }
 
-    function getItunesInfo()
-    {
+    function getItunesInfo() {
         $("#album-art").empty();
         $("#track-info").empty();
 
@@ -139,9 +128,9 @@ $(document).ready(function () {
 
         $.ajax({
             url: queryURL,
-            method: "GET", 
-            headers:{"Access-Control-Allow-Origin": "*"}
-        }).done(function(data){
+            method: "GET",
+            headers: { "Access-Control-Allow-Origin": "*" }
+        }).done(function (data) {
             //parse data into JSON format 
             var trackData = JSON.parse(data);
             //grab data we want
@@ -162,7 +151,7 @@ $(document).ready(function () {
             //create artist name anchor element 
             var artistAnchor = $("<a>").text(`${artist}`);
             //link artis preview pagfe provided by apple
-            artistAnchor.attr("href", `${trackData.results[0].artistViewUrl}`)  
+            artistAnchor.attr("href", `${trackData.results[0].artistViewUrl}`)
             //open in new tab
             artistAnchor.attr("target", `_blank`);
             //give class to change font color
@@ -180,21 +169,18 @@ $(document).ready(function () {
         });
     }
 
-    function setIframeWidthHeight() 
-    {
+    function setIframeWidthHeight() {
         $("iframe").attr("width", "420");
         $("iframe").attr("height", "315");
     }
 
-    function setLyricsMessage() 
-    {
+    function setLyricsMessage() {
         $("#lyricsPlacement").empty();
-        var noArtistMessage = "To get lyrics an Artist must be provided.";        
+        var noArtistMessage = "To get lyrics an Artist must be provided.";
         $("#lyricsPlacement").append(noArtistMessage);
     }
 
-    function incompleteSongFieldError()
-    {
+    function incompleteSongFieldError() {
         //create modal saying the song field is required 
         var modal = $("<div>");
         modal.text("Song Title field is required");
@@ -205,7 +191,7 @@ $(document).ready(function () {
         exitBtn.attr("id", "exitBtn");
         modal.prepend(exitBtn);
         $("#noSongModal").append(modal);
-        $("#exitBtn").click(function(){
+        $("#exitBtn").click(function () {
             $("#noSongError").remove();
         });
     }
@@ -215,33 +201,27 @@ $(document).ready(function () {
     // Theme Switcher
     var mode = "light";
     // Set everything to light mode at the start
-    $("body").attr("class","light");
-    $("#cannon-img").attr("src","./img/logo.png");
+    $("body").attr("class", "light");
+    $("#cannon-img").attr("src", "./img/logo.png");
 
     //Event Listener for theme switcher.
     $("#theme-switcher").click(function () {
         // Switch from light to dark
         if (mode === "light") {
             mode = "dark";
-            $("body").attr("class","dark");
-            $("footer").attr("class","footer-d");
-            $("#cannon-img").attr("src","./img/logoD.png");
-        } 
-        else 
-        {
+            $("body").attr("class", "dark");
+            $("footer").attr("class", "footer-d");
+            $("#cannon-img").attr("src", "./img/logoD.png");
+        }
+        else {
             // Switch from dark to light
             mode = "light";
-            $("body").attr("class","light");
-            $("footer").attr("class","footer");
-            $("#cannon-img").attr("src","./img/logo.png");
-<<<<<<< HEAD
+            $("body").attr("class", "light");
+            $("footer").attr("class", "footer");
+            $("#cannon-img").attr("src", "./img/logo.png");
         }
-
-=======
-        }  
->>>>>>> c8294f62b9978cc5f2ce65fe69abff11c6494cae
     });
-})
+});
 
 //Localstorage
 
