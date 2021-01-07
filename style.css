@@ -191,3 +191,14 @@ input:checked + .slider:before {
  .make-inline{
    display: inline;
  }
+
+  @media (max-width: 575.98px) { 
+  iframe {
+    width: 320px;
+    height: 315px;
+  }
+ }
+
+ 
+
+ 
