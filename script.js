@@ -10,10 +10,14 @@ $(document).ready(function () {
         }
         getItunesInfo();
         if ($("#useVimeo").is(":checked")) {
+            localStorage.setItem("vim", "yes")
             vimVids();
+            
         }
         else {
+            localStorage.setItem("vim", "no")
             ytVids();
+            
         }
         if (thisArtist) {
             if (thisArtist != previousArtist) {
@@ -50,6 +54,7 @@ $(document).ready(function () {
             if (error) {
                 var noYtMessage =
                     "WHOOPS! YouTube is unavailable, use Vimeo instead.";
+                $("#feedback").text("");   
                 $("#feedback").append(noYtMessage);
                 vimVids();
             }
@@ -204,31 +209,56 @@ $(document).ready(function () {
 
     $("#search-btn").click(startSearch);
 
+    
     // Theme Switcher
     var mode = "light";
-    // Set everything to light mode at the start
-    $("body").attr("class", "light");
-    $("#cannon-img").attr("src", "./img/logo.png");
+    // Set mode dark or light mode at the start
+    var dlMode = localStorage.getItem("mode")
+    if (dlMode === "dark") {
+        $("#theme-switcher").prop("checked", true);
+        dark();   
+    } else if (dlMode === "light") {
+        light();
+    } else {
+        light();
+    }
+   
+    function dark(){
+        mode = "dark";
+        $("body").attr("class", "dark");
+        $("footer").attr("class", "footer-d");
+        $("#cannon-img").attr("src", "./img/logoD.png");
+        localStorage.setItem("mode","dark");                    //set to localstorage
+    }
+    function light(){
+        mode = "light";
+        $("body").attr("class", "light");
+        $("footer").attr("class", "footer");
+        $("#cannon-img").attr("src", "./img/logo.png");
+        localStorage.setItem("mode","light");                   //set to localstorage
+    }
 
     //Event Listener for theme switcher.
     $("#theme-switcher").click(function () {
+        dlMode = localStorage.getItem("mode")
         // Switch from light to dark
         if (mode === "light") {
-            mode = "dark";
-            $("body").attr("class", "dark");
-            $("footer").attr("class", "footer-d");
-            $("#cannon-img").attr("src", "./img/logoD.png");
+            dark();
         }
         else {
             // Switch from dark to light
-            mode = "light";
-            $("body").attr("class", "light");
-            $("footer").attr("class", "footer");
-            $("#cannon-img").attr("src", "./img/logo.png");
+            light();
         }
     });
-});
+    //Video Preference local storage
+    var vim = localStorage.getItem("vim")
+    if (vim === "yes") {
+        $("#useVimeo").prop("checked", true); 
+    }
 
-//Localstorage
+});
+    
+
+
 
 
