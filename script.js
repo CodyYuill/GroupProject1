@@ -10,14 +10,10 @@ $(document).ready(function () {
         }
         getItunesInfo();
         if ($("#useVimeo").is(":checked")) {
-            localStorage.setItem("vim", "yes")
             vimVids();
-            
         }
         else {
-            localStorage.setItem("vim", "no")
             ytVids();
-            
         }
         if (thisArtist) {
             if (thisArtist != previousArtist) {
@@ -207,7 +203,18 @@ $(document).ready(function () {
         });
     }
 
+    function vimeoLocalStorage()
+    {
+        if ($("#useVimeo").is(":checked")) {
+            localStorage.setItem("vim", "yes");            
+        }
+        else {
+            localStorage.setItem("vim", "no");            
+        }
+    }
+
     $("#search-btn").click(startSearch);
+    $("#useVimeo").click(vimeoLocalStorage);
 
     
     // Theme Switcher
