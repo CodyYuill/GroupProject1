@@ -94,6 +94,8 @@ $(document).ready(function () {
                 var noVimMessage =
                     "WHOOPS! Video is not available. Please check search and try again.";
                 $("#error").append(noVimMessage);
+                $("#video-img").show();
+
             }
 
             // for  loop for the data recieved.
@@ -129,7 +131,8 @@ $(document).ready(function () {
             } else {
                 var noLyricsMessage =
                     "WHOOPS! We can't find the lyrics you're looking for!";
-                $("#lyricsPlacement").append(noLyricsMessage);
+                $("#error1").append(noLyricsMessage);
+                $("#lyrics-img").show();
             }
         });
     }
