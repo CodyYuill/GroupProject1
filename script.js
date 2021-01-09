@@ -231,12 +231,12 @@ $(document).ready(function () {
     $("#share").click(function() { 
         //only create a link once, if a link is created 
         //do not make a n ew ajax call
-        if($("#share-link").text())
+        if($("#linkField").val())
         {
             return;
         }
         //empty the text 
-        $("#share-link").text("")
+        $("#linkField").text("")
         //grab first anchor link (song preview page)
         var value = $("a").attr("href")
         //set required api queries 
@@ -257,13 +257,31 @@ $(document).ready(function () {
             dataType: "json",
             }).done(function (link){
             //grab the link and append to page
-            var shortUrl = link.shortUrl
-            var link = $("<div id='link'>")
-            link.text(shortUrl)
-            $("#share-link").append(link)
+            var shortUrl = link.shortUrl;
+            var link = $(`<input type="text" id="linkField">`);
+            link.attr("value", shortUrl);
+            var copyBtn = $(`<button id="copyBtn">Copy text</button>`);
+            copyBtn.click(copyLink);
+            $("#share-link").append(link, copyBtn);
           
         })   
-    })  
+    })
+
+    function copyLink() { 
+        console.log("test");
+        /* Get the text field */
+        var copyText = $("#linkField");
+      
+        /* Select the text field */
+        copyText.select();
+        //copyText.setSelectionRange(0, 99999); /* For mobile devices */
+      
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        var copyMsg = $(`<p id="copyMsg"></p>`).text("Copied to clipboard!");
+        $("#share-link").append(copyMsg);
+    }
     
     function setIframeWidthHeight() {
         //set inital ifram dimensions
