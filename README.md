@@ -48,12 +48,12 @@ The APIs used are listed below:
 
 ## Screenshots
 ### Application in light Mode
-<img src="img/screencapture-light.png" alt= "app in light mode" width= "500px">
+<img src="img/screencapture-light.png" alt= "app in light mode">
 
-### Application in DAark Mode
-<img src="img/screencapture-dark.png" alt= "app in dark mode" width= "500px">
+### Application in Dark Mode
+<img src="img/screencapture-dark.png" alt= "app in dark mode">
 
-The user interface is responsive and adapts to all screen sizes. Click on the arrows to drop down more images at various screen sizes.
+### The user interface is responsive and adapts to all screen sizes. Click on the arrows to drop down more images at various screen sizes.
 
 <details>
   <summary>Large Screen</summary>
