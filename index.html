@@ -13,6 +13,7 @@
 <body>
   <main class="wrapper">
     <!-- Slider -->
+    
     <label class="switch">
       <input type="checkbox" id="theme-switcher" />
       <span class="slider round">D L</span>
@@ -30,8 +31,8 @@
         <!-- Song Search Area -->
           <form>
             <span id="title">Search </span>
-            <input id="song" class="search" type="text" placeholder="Song Title" />
-            <input id="artist" class="search" type="text" placeholder="Artist" />
+            <input id="song" class="search input" type="text" placeholder="Song Title" />
+            <input id="artist" class="search input" type="text" placeholder="Artist" />
             <br />
             <input type="checkbox" id="useVimeo" /> Use Vimeo
             <button id="search-btn" class="button is-primary">
@@ -50,8 +51,18 @@
               <div class="column" id="track-info"></div>
             </div>
             <!--Share link-->
-            <button id="share"class="button is-primary hide">Shareable Link</button>
-            <div class ="column" id="share-link"></div>
+            <button id="share" class="button is-primary hide">Shareable Link</button>
+            <div class="field has-addons" style="text-align: center;">
+              <div class="control" id="share-link">
+                <!-- input class -->
+              </div>
+              <div class="control hide" id="copy-btn">
+                <a class="button is-primary tooltip">
+                  <span class="tooltiptext" id="copy-feedback"></span>
+                  <i class="fas fa-clipboard-list"></i>
+                </a>
+              </div>
+            </div>
       </section>
       <!-- Video Display Area -->
       <section class="column is-mobile is-two-fifths-desktop" id="results">
