@@ -147,6 +147,7 @@ $(document).ready(function () {
     //Function to get lyrics
     function getLyrics() {
         //clear section
+        $("#error1").text("");
         $("#lyricsPlacement").empty();
         //set required api queries 
         var artist = $("#artist").val().trim();
