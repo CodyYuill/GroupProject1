@@ -206,7 +206,7 @@ $(document).ready(function () {
             trackAnchor.attr("class", `previewLinks`);
             //create artist name anchor element 
             var artistAnchor = $("<a>").text(`${artist}`);
-            //link artis preview pagfe provided by apple
+            //link artis preview page provided by apple
             artistAnchor.attr("href", `${trackData.results[0].artistViewUrl}`)
             //open in new tab
             artistAnchor.attr("target", `_blank`);
@@ -222,6 +222,7 @@ $(document).ready(function () {
             $("#album-art").append(aAElem);
             $("#track-info").append(tNArtistElem, aNElem);
             $("#share").removeClass("hide");
+            $("#copy-btn").addClass("hide");
             $("#share-link").empty();
             
             //console.log(`trackName = ${trackName} || artist = ${artist} || albumName = ${albumName} || albumArt url = ${albumArt}`);
@@ -247,8 +248,7 @@ $(document).ready(function () {
         var requestHeaders = {
                 "Content-Type": "application/json",
                 "apikey": "74b789cded664bcbad7382cf21ded63a",
-                }
-                  
+                }    
         $.ajax({
             url: "https://api.rebrandly.com/v1/links",
             type: "post",
@@ -258,12 +258,15 @@ $(document).ready(function () {
             }).done(function (link){
             //grab the link and append to page
             var shortUrl = link.shortUrl;
-            var link = $(`<input type="text" id="linkField">`);
+            var link = $(`<input class="input" type="text" id="linkField" readonly>`);
             link.attr("value", shortUrl);
-            var copyBtn = $(`<button id="copyBtn">Copy text</button>`);
-            copyBtn.click(copyLink);
-            $("#share-link").append(link, copyBtn);
-          
+            $("#copy-btn").removeClass("hide");
+            $("#copy-btn").attr(`data-tooltip="Tooltip Text"`);
+            $("#copy-feedback").text("Copy to clipboard");
+            $("#copy-btn").click(copyLink);
+            $("#share").addClass("hide");
+            $("#share-link").append(link);
+            $("#copy-feedback").text("Copy to clipboard");
         })   
     })
 
@@ -271,16 +274,12 @@ $(document).ready(function () {
         console.log("test");
         /* Get the text field */
         var copyText = $("#linkField");
-      
         /* Select the text field */
         copyText.select();
         //copyText.setSelectionRange(0, 99999); /* For mobile devices */
-      
         /* Copy the text inside the text field */
         document.execCommand("copy");
-
-        var copyMsg = $(`<p id="copyMsg"></p>`).text("Copied to clipboard!");
-        $("#share-link").append(copyMsg);
+        $("#copy-feedback").text("Copied!");
     }
     
     function setIframeWidthHeight() {
