@@ -124,7 +124,7 @@ $(document).ready(function () {
                     "WHOOPS! Video is not available. Please check search and try again.";
                 $("#error").append(noVimMessage);
                 $("#video-img").show();
-
+                
             }
 
             // for  loop for the data recieved.
@@ -148,6 +148,7 @@ $(document).ready(function () {
     //Function to get lyrics
     function getLyrics() {
         //clear section
+        $("#error1").text("");
         $("#lyricsPlacement").empty();
         //set required api queries 
         var artist = $("#artist").val().trim();
