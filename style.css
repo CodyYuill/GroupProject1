@@ -11,6 +11,9 @@ body {
 html {
   background-color: inherit;
 }
+.hide {
+  display: none;
+}
 /* Vibe Cannon Image Logo Settings */
 .logo {
   text-align: center;

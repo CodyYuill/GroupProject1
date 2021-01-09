@@ -30,6 +30,7 @@ $(document).ready(function () {
 
     function ytVids() {
         $("#videos").empty(); // clears videos when submit button clicked
+        $("#error").text("");
 
         var key = "AIzaSyAa1zc7O33vu-6VA17JJFLnWPC9ckiXcOw";
         var search = $("#song").val().trim() + " " + $("#artist").val().trim();
@@ -71,6 +72,7 @@ $(document).ready(function () {
     }
 
     function vimVids() {
+        $("#error").text("");
         $("#videos").empty(); // clears videos when submit button clicked
         //var test = "beyonce";
         var accessToken = "1d50cb8f1dbb330003a778e658d15053";
@@ -86,6 +88,14 @@ $(document).ready(function () {
             url: vimUrl,
             method: "GET",
         }).then(function (data) {
+            var total = data.total 
+            //console.log(typeof total)
+            if (total < 1){
+                var noVimMessage =
+                    "WHOOPS! Video is not available. Please check search and try again.";
+                $("#error").append(noVimMessage);
+            }
+
             // for  loop for the data recieved.
             $.each(data.data, function (i, item) {
                 //created p tag for video title.
@@ -138,6 +148,7 @@ $(document).ready(function () {
         }).done(function(data){
 
             $("#itunes-area").removeClass("hide");
+            
             //parse data into JSON format 
             var trackData = JSON.parse(data);
             //grab data we want
@@ -172,10 +183,41 @@ $(document).ready(function () {
             //append everything
             $("#album-art").append(aAElem);
             $("#track-info").append(tNArtistElem, aNElem);
+            $("#share").removeClass("hide");
+            $("#share-link").empty()
+            
             //console.log(`trackName = ${trackName} || artist = ${artist} || albumName = ${albumName} || albumArt url = ${albumArt}`);
         });
     }
 
+    $("#share").click(function() { 
+        $("#share-link").text("")
+        var value = $("a").attr("href")
+        var linkRequest = {
+                destination: value,
+                domain: { fullName: "rebrand.ly" }
+                }
+        var requestHeaders = {
+                "Content-Type": "application/json",
+                "apikey": "74b789cded664bcbad7382cf21ded63a",
+                }
+                  
+        $.ajax({
+            url: "https://api.rebrandly.com/v1/links",
+            type: "post",
+            data: JSON.stringify(linkRequest),
+            headers: requestHeaders,
+            dataType: "json",
+            }).done(function (link){
+
+            var shortUrl = link.shortUrl
+            var link = $("<div id='link'>")
+            link.text(shortUrl)
+            $("#share-link").append(link)
+          
+        })   
+    })  
+    
     function setIframeWidthHeight() {
         $("iframe").attr("width", "420");
         $("iframe").attr("height", "315");
@@ -203,6 +245,8 @@ $(document).ready(function () {
         });
     }
 
+    
+
     function vimeoLocalStorage()
     {
         if ($("#useVimeo").is(":checked")) {
@@ -216,7 +260,12 @@ $(document).ready(function () {
     $("#search-btn").click(startSearch);
     $("#useVimeo").click(vimeoLocalStorage);
 
-    
+    //Video Preference local storage
+    var vim = localStorage.getItem("vim")
+    if (vim === "yes") {
+        $("#useVimeo").prop("checked", true); 
+    }
+
     // Theme Switcher
     var mode = "light";
     // Set mode dark or light mode at the start
@@ -257,12 +306,7 @@ $(document).ready(function () {
             light();
         }
     });
-    //Video Preference local storage
-    var vim = localStorage.getItem("vim")
-    if (vim === "yes") {
-        $("#useVimeo").prop("checked", true); 
-    }
-
+    
 });
     
 
