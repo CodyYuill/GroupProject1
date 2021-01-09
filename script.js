@@ -163,6 +163,7 @@ $(document).ready(function () {
             if (lyrics) {
                 $("#lyricsPlacement").append(lyrics);
             } else {
+                $("#error1").empty();
                 var noLyricsMessage =
                     "WHOOPS! We can't find the lyrics you're looking for!";
                 $("#error1").append(noLyricsMessage);
@@ -272,12 +273,13 @@ $(document).ready(function () {
 
     function copyLink() { 
         console.log("test");
-        /* Get the text field */
+        
         var copyText = $("#linkField");
         /* Select the text field */
         copyText.select();
         //copyText.setSelectionRange(0, 99999); /* For mobile devices */
         /* Copy the text inside the text field */
+
         document.execCommand("copy");
         $("#copy-feedback").text("Copied!");
     }
