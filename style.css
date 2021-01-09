@@ -39,6 +39,9 @@ html {
 .is-mobile {
   width: 90%;
 }
+#search-area, #results, #lyrics{
+  box-shadow: 0px 8px 5px #8d8d8d, 0px -8px 5px #8d8d8d;
+}
 #search-area {
   border: 1px solid;
   border-radius: 10px;
@@ -99,7 +102,7 @@ html {
 }
 #lyrics-img {
   margin-top: 50px;
-  max-width: 300px;
+  max-width: 240px;
 }
 /* Styles for footer with dark/light theme*/
 .footer {
@@ -201,9 +204,8 @@ input:checked + .slider:before {
  .errorModal{
    margin: auto;
    margin-bottom: 25px;
-   max-width: 25%;
    text-align: center;
-   font-size: 25px;
+   font-size: 20px;
  }
  .make-inline{
    display: inline;
@@ -228,6 +230,7 @@ input:checked + .slider:before {
       height: 315px !important;
     }
    }
+
 
  
 

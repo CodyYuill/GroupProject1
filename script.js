@@ -1,37 +1,62 @@
+//null videos 
+
 $(document).ready(function () {
+    //screate last searched artist and song title variables
+    var previousTitle = "";
     var previousArtist = "";
     function startSearch(e) {
-        $("#feedback").text("");
         e.preventDefault();
+        //clear feedback text
+        $("#feedback").text("");
+        //make sure shareable link button is hidden and emptied
+        $("#share").addClass("hide");
+        $("#share-link").empty();
+        //empty no song title field error modal
+        $("#noSongModal").empty();
+        //grab search field inputs
         var thisArtist = $("#artist").val().trim();
-        if (!$("#song").val()) {
+        var thisTitle = $("#song").val().trim();
+        //check if song title is proveded
+        if (!thisTitle) {
+            //if no song title give error modal and return 
             incompleteSongFieldError();
             return;
         }
+        //get the itunes info
         getItunesInfo();
+        //check if user wants vimeo or youtube video results
+        //then call needed function
         if ($("#useVimeo").is(":checked")) {
             vimVids();
         }
         else {
             ytVids();
         }
+        //check to see if artist field is filled in 
         if (thisArtist) {
-            if (thisArtist != previousArtist) {
+            //if it is only re search lyrics if the song or artist is different 
+            //fromt he last search
+            if (thisArtist != previousArtist || thisTitle != previousTitle) {
                 previousArtist = thisArtist;
+                previousTitle = thisTitle;
                 getLyrics();
             }
         }
+        //otherwise give an error message in the lyrics column
         else {
             setLyricsMessage();
         }
+        //hide the images
         $("#video-img").hide();
         $("#lyrics-img").hide();
     }
 
     function ytVids() {
-        $("#videos").empty(); // clears videos when submit button clicked
+        // clears videos and error message when submit button clicked 
+        $("#videos").empty(); 
         $("#error").text("");
 
+        //set required api queries 
         var key = "AIzaSyAa1zc7O33vu-6VA17JJFLnWPC9ckiXcOw";
         var search = $("#song").val().trim() + " " + $("#artist").val().trim();
         var maxResults = 3;
@@ -48,6 +73,7 @@ $(document).ready(function () {
             url: ytUrl,
             method: "GET",
         }).catch(function (error) {
+            //if call fails let user know youtube didnt work 
             if (error) {
                 var noYtMessage =
                     "WHOOPS! YouTube is unavailable, use Vimeo instead.";
@@ -72,9 +98,11 @@ $(document).ready(function () {
     }
 
     function vimVids() {
+        // clears videos and error message when submit button clicked 
+
         $("#error").text("");
-        $("#videos").empty(); // clears videos when submit button clicked
-        //var test = "beyonce";
+        $("#videos").empty();
+        //set required api queries 
         var accessToken = "1d50cb8f1dbb330003a778e658d15053";
         var numResults = 3;
         var search = $("#song").val().trim() + " " + $("#artist").val().trim();
@@ -89,7 +117,7 @@ $(document).ready(function () {
             method: "GET",
         }).then(function (data) {
             var total = data.total 
-            //console.log(typeof total)
+            //if vimeo didnt work let user know
             if (total < 1){
                 var noVimMessage =
                     "WHOOPS! Video is not available. Please check search and try again.";
@@ -103,8 +131,14 @@ $(document).ready(function () {
                 //created p tag for video title.
                 var p = $("<p>");
                 p.html(item.name);
+                //if embed html is null skip that result 
+                if(item.embed.html == null)
+                {
+                    return;
+                }
                 //append p tag and iframe with video id to video section.
                 $("#videos").append(p, `${item.embed.html}`);
+                
 
                 setIframeWidthHeight();
             });
@@ -112,8 +146,9 @@ $(document).ready(function () {
     }
     //Function to get lyrics
     function getLyrics() {
-        $("#lyricsPlacement").empty(); // clears videos when submit button clicked
-
+        //clear section
+        $("#lyricsPlacement").empty();
+        //set required api queries 
         var artist = $("#artist").val().trim();
         var song = $("#song").val().trim();
         var lyricUrl = "https://api.lyrics.ovh/v1/" + artist + "/" + song;
@@ -122,7 +157,6 @@ $(document).ready(function () {
             method: "GET",
         }).then(function (response) {
             // parse lyrics
-            // lyrics = response.lyrics;
             lyrics = response.lyrics.replace(/\n*\n/g, '<br>');
 
             // adding song-lyrics to the lyrics div
@@ -138,9 +172,10 @@ $(document).ready(function () {
     }
 
     function getItunesInfo() {
+        //empty section
         $("#album-art").empty();
         $("#track-info").empty();
-
+        //set required api queries 
         var search = $("#song").val().trim() + " " + $("#artist").val().trim();
         var queryURL = `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=${search}&country=CA&media=music&entity=musicTrack&limit=1`
 
@@ -187,15 +222,24 @@ $(document).ready(function () {
             $("#album-art").append(aAElem);
             $("#track-info").append(tNArtistElem, aNElem);
             $("#share").removeClass("hide");
-            $("#share-link").empty()
+            $("#share-link").empty();
             
             //console.log(`trackName = ${trackName} || artist = ${artist} || albumName = ${albumName} || albumArt url = ${albumArt}`);
         });
     }
 
     $("#share").click(function() { 
+        //only create a link once, if a link is created 
+        //do not make a n ew ajax call
+        if($("#share-link").text())
+        {
+            return;
+        }
+        //empty the text 
         $("#share-link").text("")
+        //grab first anchor link (song preview page)
         var value = $("a").attr("href")
+        //set required api queries 
         var linkRequest = {
                 destination: value,
                 domain: { fullName: "rebrand.ly" }
@@ -212,7 +256,7 @@ $(document).ready(function () {
             headers: requestHeaders,
             dataType: "json",
             }).done(function (link){
-
+            //grab the link and append to page
             var shortUrl = link.shortUrl
             var link = $("<div id='link'>")
             link.text(shortUrl)
@@ -222,6 +266,7 @@ $(document).ready(function () {
     })  
     
     function setIframeWidthHeight() {
+        //set inital ifram dimensions
         $("iframe").attr("width", "420");
         $("iframe").attr("height", "315");
     }
@@ -238,20 +283,15 @@ $(document).ready(function () {
         modal.text("Song Title field is required");
         modal.attr("class", "notification is-danger errorModal");
         modal.attr("id", "noSongError");
-        var exitBtn = $("<button>");
-        exitBtn.attr("class", "delete");
-        exitBtn.attr("id", "exitBtn");
-        modal.prepend(exitBtn);
+        //append modal
         $("#noSongModal").append(modal);
-        $("#exitBtn").click(function () {
-            $("#noSongError").remove();
-        });
     }
 
     
 
     function vimeoLocalStorage()
     {
+        //store whether user was using yotube or vimeo in local storage
         if ($("#useVimeo").is(":checked")) {
             localStorage.setItem("vim", "yes");            
         }
@@ -260,6 +300,7 @@ $(document).ready(function () {
         }
     }
 
+    //set event listeners
     $("#search-btn").click(startSearch);
     $("#useVimeo").click(vimeoLocalStorage);
 
