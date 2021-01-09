@@ -10,7 +10,6 @@ We are team vibes.  After the world experienced the biggest <b>404</b> error in 
 * [Technology](#technology)
 * [Deployment and Demo](#deployment-and-demo)
 * [Screenshots](#screenshots)
-* [Credits](#credits)
 * [License](#license)
 
 ## General Information
@@ -48,8 +47,26 @@ The APIs used are listed below:
 [Click here for some good vibes!!](https://codyyuill.github.io/Vibe-Cannon/)
 
 ## Screenshots
+### Application in light Mode
+<img src="img/screencapture-light.png" alt= "app in light mode" width= "500px">
 
+### Application in DAark Mode
+<img src="img/screencapture-dark.png" alt= "app in dark mode" width= "500px">
 
+The user interface is responsive and adapts to all screen sizes. Click on the arrows to drop down more images at various screen sizes.
+
+<details>
+  <summary>Large Screen</summary>
+  <img src="img/screencapture-1200px.png" alt= "screenshot of site at 1220px">
+</details>
+<details>
+  <summary>Medium Screen</summary>
+   <img src="img/screencapture-768px.png" alt= "screenshot of site at 768px">
+</details>
+<details>
+  <summary>Small Screen</summary>
+   <img src="img/screencapture-400px.png" alt= "screenshot of site at 400px">
+</details>
 
 ## License 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
