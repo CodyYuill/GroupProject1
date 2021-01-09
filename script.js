@@ -10,6 +10,7 @@ $(document).ready(function () {
         $("#feedback").text("");
         //make sure shareable link button is hidden and emptied
         $("#share").addClass("hide");
+        $("#copy-btn").addClass("hide");
         $("#share-link").empty();
         //empty no song title field error modal
         $("#noSongModal").empty();
