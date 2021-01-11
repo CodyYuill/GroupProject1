@@ -53,6 +53,9 @@ The APIs used are listed below:
 
 [Click here for some good vibes!!](https://codyyuill.github.io/Vibe-Cannon/)
 
+<img src="img/demo.gif" alt= "demo of app">
+
+
 ## Screenshots
 ### Application in light Mode
 <img src="img/screencapture-light.png" alt= "app in light mode">
