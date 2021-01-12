@@ -4,90 +4,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Link to Bulma css framework -->
   <link rel="stylesheet" href="bulma.css" />
+  <!-- Link to our own css stylesheet -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Link to fontawesome for icons -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+  <!-- Document Title -->
   <title>Vibe Cannon</title>
 </head>
 
 <body>
   <main class="wrapper">
-    <!-- Slider -->
-    
+    <!-- Theme Switcher -->
     <label class="switch">
       <input type="checkbox" id="theme-switcher" />
       <span class="slider round">D L</span>
     </label>
-    <!-- Header -->
+    <!-- Header (Logo Image) -->
     <header class="logo">
       <img src="#" id="cannon-img" alt="vibe-cannon-image" />
     </header>
-    <!-- area for no song field error message -->
-
-    <!-- Open the columns for responsiveness -->
+    <!-- Columns for page responsiveness -->
     <div class="columns">
+      <!-- Song Search Area -->
       <section class="column is-mobile is-one-quarter-desktop" id="search-area">
-        <!-- search row -->
-        <!-- Song Search Area -->
-          <form>
-            <span id="title">Search </span>
-            <input id="song" class="search input" type="text" placeholder="Song Title" />
-            <input id="artist" class="search input" type="text" placeholder="Artist" />
-            <br />
-            <input type="checkbox" id="useVimeo" /> Use Vimeo
-            <button id="search-btn" class="button is-primary">
-              <i class="fas fa-search"></i>
-            </button>
-          </form>
+        <form>
+          <!-- User inputs search criteria -->
+          <span id="title">Search </span>
+          <input id="song" class="search input" type="text" placeholder="Song Title" />
+          <input id="artist" class="search input" type="text" placeholder="Artist" />
           <br />
-          <div id="feedback"></div>
-          <div id="noSongModal"></div>
-          <br />
-          <!-- ITunes row -->
-            <div class="columns is-mobile is-multiline" id="itunes-area">
-              <!-- ALBUM ART COLUMNS  -->
-              <div class="column is-narrow" id="album-art"></div>
-              <!-- REST OF INFO -->
-              <div class="column" id="track-info"></div>
-            </div>
-            <!--Share link-->
-            <button id="share" class="button is-primary hide">Shareable Link</button>
-            <div class="field has-addons" style="text-align: center;">
-              <div class="control" id="share-link">
-                <!-- input class -->
-              </div>
-              <div class="control hide" id="copy-btn">
-                <a class="button is-primary tooltip">
-                  <span class="tooltiptext" id="copy-feedback"></span>
-                  <i class="fas fa-clipboard-list"></i>
-                </a>
-              </div>
-            </div>
+          <input type="checkbox" id="useVimeo" /> Use Vimeo
+          <button id="search-btn" class="button is-primary">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <br />
+        <!-- Feedback area if song searched returns an error -->
+        <div id="feedback"></div>
+        <div id="noSongModal"></div>
+        <br />
+        <!-- ITunes row -->
+        <div class="columns is-mobile is-multiline" id="itunes-area">
+          <!-- Album art -->
+          <div class="column is-narrow" id="album-art"></div>
+          <!-- Rest of Song Info -->
+          <div class="column" id="track-info"></div>
+        </div>
+        <!--Share link-->
+        <button id="share" class="button is-primary hide">Shareable Link</button>
+        <div class="field has-addons" style="text-align: center;">
+          <div class="control" id="share-link"></div>
+          <div class="control hide" id="copy-btn">
+            <a class="button is-primary tooltip">
+              <span class="tooltiptext" id="copy-feedback"></span>
+              <i class="fas fa-clipboard-list"></i>
+            </a>
+          </div>
+        </div>
       </section>
       <!-- Video Display Area -->
       <section class="column is-mobile is-two-fifths-desktop" id="results">
         <span id="title">Videos</span>
         <br />
+        <!-- Feedback if video returns any errors -->
         <div id="error"></div>
+        <!-- Videos output here -->
         <img id="video-img" src="./img/video-img.png" alt="video-img">
         <div id="videos"></div>
       </section>
       <!-- Lyrics Display Area -->
       <section class="column is-mobile is-one-quarter-desktop" id="lyrics">
         <span id="title">Lyrics</span> <br />
+        <!-- Feedback if lyrics returns any errors -->
         <div id="error1"></div>
+        <!-- Lyrics output here -->
         <img id="lyrics-img" src="./img/lyrics-img.png" alt="lyrics-img">
         <div id="lyricsPlacement"></div>
       </section>
     </div>
   </main>
-  <!-- We can change footer content later on -->
+  <!-- Footer -->
   <footer class="footer">
     <p>Made with &#128526; by: Matthew, Nashica, Cody</p>
     <p> Copyright &copy 2021</p>
   </footer>
-
+  <!-- Link to jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Link to our own JavaScript -->
   <script src="script.js"></script>
 </body>
 

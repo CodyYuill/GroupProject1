@@ -29,6 +29,7 @@ html {
   font-weight: 900;
   margin: 20px;
 }
+/* Responsive columns settings */
 .columns {
   background-color: inherit;
   text-align: center;
@@ -42,6 +43,7 @@ html {
 #search-area, #results, #lyrics{
   box-shadow: 0px 8px 5px #8d8d8d, 0px -8px 5px #8d8d8d;
 }
+/* Search area css settings */
 #search-area {
   border: 1px solid;
   border-radius: 10px;
@@ -97,7 +99,7 @@ html {
   opacity: 1;
   font-size: 85%;
 }
-
+/* iTunes area */
 #itunes-area{
   text-align: initial !important;
   margin-left: auto;
@@ -125,6 +127,7 @@ html {
   font-weight: 900;
   margin-right: 5px;
 }
+/* Video section css settings */
 #results {
   border: 1px solid;
   border-radius: 10px;
@@ -136,6 +139,7 @@ html {
 #video-img {
   max-height: 200px;
 }
+/* Lyrics section css settings */
 #lyrics {
   border: 1px solid;
   border-radius: 10px;
@@ -249,35 +253,35 @@ input:checked + .slider:before {
 #feedback {
   color: red;
 }
- .errorModal{
-   margin: auto;
-   margin-bottom: 25px;
-   text-align: center;
-   font-size: 20px;
- }
- .make-inline{
-   display: inline;
- }
+.errorModal{
+  margin: auto;
+ margin-bottom: 25px;
+ text-align: center;
+ font-size: 20px;
+}
+.make-inline{
+ display: inline;
+}
 
 /*Media Queries for videos*/
-  @media (min-width: 280px) and (max-width: 386.98px) { 
-    iframe {
-      width: 250px !important;
-      height: 315px !important;
-    }
-   }
-   @media (min-width: 387px) and (max-width: 575.98px) { 
-    iframe {
-      width: 325px !important;
-      height: 315px !important;
-    }
-   }
-   @media (min-width: 1024px) and (max-width: 1110.98px) { 
-    iframe {
-      width: 325px !important;
-      height: 315px !important;
-    }
-   }
+@media (min-width: 280px) and (max-width: 386.98px) { 
+  iframe {
+   width: 250px !important;
+    height: 315px !important;
+  }
+}
+@media (min-width: 387px) and (max-width: 575.98px) { 
+  iframe {
+    width: 325px !important;
+    height: 315px !important;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1110.98px) { 
+  iframe {
+    width: 325px !important;
+    height: 315px !important;
+  }
+}
 
 
  
